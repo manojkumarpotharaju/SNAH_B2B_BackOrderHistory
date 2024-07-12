@@ -1,0 +1,36 @@
+###
+
+GET http://localhost:4004/odata/v4/erp-back-order-history/BackOrderHistory
+
+###
+
+POST http://localhost:4004/odata/v4/erp-back-order-history/GetBackOrderHistory
+Content-Type: application/json
+
+# {
+#  "soldTo" : "244540",
+#  "search" : "",
+#  "searchBy" : "",
+#  "fromDate" : "",
+#  "toDate" : "",
+#  "status" : [ "3" ],
+#  "sort" : "transactionDate",
+#  "dir" : "desc",
+#  "currentPage" : 0,
+#  "pageSize" : 12,
+#  "orderType" : [ "SO" ]
+# }
+
+{
+ "soldTo" : "244540",
+ "search" : "",
+ "searchBy" : "",
+ "fromDate" : "",
+ "toDate" : "",
+ "status" : [ ],
+ "sort" : "transactionDate",
+ "dir" : "desc",
+ "currentPage" : 0,
+ "pageSize" : 12,
+ "orderType" : [ ]
+}
