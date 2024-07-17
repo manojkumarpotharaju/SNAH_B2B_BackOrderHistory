@@ -17,7 +17,7 @@ module.exports = cds.service.impl(async function (srv) {
             let query = SELECT.from(B2B_BackOrderHistory).columns('erpOrderNumber', 'erpOrderType', 'orderCo',
                 'erpLineNumber', 'localSku', 'globalSku', 'status',
                 'currency', 'dealerPrice', 'quantityOrdered', 'quantityBackorder',
-                'totalPriceBackorder', 'transactionDate', 'billTo', 'shipTo', 'productCode', 'paymentTerms', 'orderPlacedBy', 'hybrisOrderNumber').where({ billTo: soldTo });
+                'totalPriceBackorder', 'transactionDate', 'billTo', 'shipTo', 'poNumber', 'paymentTerms', 'orderPlacedBy', 'hybrisOrderNumber').where({ billTo: soldTo });
             if (fromDate && toDate) {
                 query.where({
                     transactionDate: {
@@ -81,11 +81,11 @@ module.exports = cds.service.impl(async function (srv) {
                 return data;
             } else {
                 const entries = paginatedResults.map(order => ({
-                    productCode: order.productCode,
+                    productCode: order.globalSku,
                     quantity: order.quantityBackorder,
                     currency: order.currency,
                     dealerPrice: order.dealerPrice,
-                    totalPrice: order.totalPrice,
+                    totalPrice: order.totalPriceBackorder,
                     erpOrderNumber: order.erpOrderNumber,
                     orderDate: order.transactionDate,
                     orderStatus: order.status

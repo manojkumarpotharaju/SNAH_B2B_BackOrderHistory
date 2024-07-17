@@ -16,7 +16,7 @@ entity B2B_BackOrderHistory {
         transactionDate     : Timestamp;
     key billTo              : String;
     key shipTo              : String;
-        productCode         : String;
+        poNumber            : String;
         paymentTerms        : String;
         orderPlacedBy       : String;
         hybrisOrderNumber   : String;
